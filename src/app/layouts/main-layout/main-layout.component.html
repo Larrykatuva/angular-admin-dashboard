@@ -1,0 +1,9 @@
+<mat-sidenav-container class="min-h-screen">
+    <mat-sidenav #sidenav mode="side" opened={{toggle}}>
+        <app-sidebar [navItemsList]="portal_url_list"></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

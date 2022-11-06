@@ -1,0 +1,25 @@
+<mat-nav-list class="bg-[#263544] min-h-screen md:px-2 text-[#b7c0cd]">
+    <a href="">
+      <mat-card>DASHBOARD</mat-card>
+    </a>
+  
+    <mat-expansion-panel *ngFor="let nav_item of navItemsList" [class.mat-elevation-z0]="true" dense
+      [expanded]="getExpanded(nav_item)" [ngClass]="{'active border-l-4 border-indigo-500': getExpanded(nav_item)} " class=" bg-[#222e3b] mt-1.5 md:my-2 md:mt-1.5">
+      <mat-expansion-panel-header class="parent-item-link
+        text-[#b7c0cd]">
+        <mat-icon class="md:mr-3" matTooltip="description" matTooltipPosition="right">{{ nav_item.icon }}</mat-icon>
+        {{ nav_item.title }}
+      </mat-expansion-panel-header>
+      <mat-nav-list *ngIf="nav_item.children.length > 0" class="bg-[#1d253180] text-[#b7c0cd] md:p-1.5 md:-mx-5 md:-mb-2.5 rounded">
+        <a *ngFor="let nav_item_link of nav_item.children" mat-list-item routerLink="{{ nav_item_link.link }}"
+          [ngClass]="{'active': false}" class="text-[#b7c0cd] md:py-2 rounded">
+  
+          <mat-icon matTooltipPosition="right"
+            class="text-[#b7c0cd] md:mr-3">{{ nav_item_link.icon }}
+          </mat-icon>
+          {{ nav_item_link.title}}
+        </a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-nav-list>
+  
